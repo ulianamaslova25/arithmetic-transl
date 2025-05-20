@@ -8,13 +8,13 @@ TEST(ArithmeticTranslyator, CanCreate)
 }
 
 TEST(ArithmeticTranslyator, SimpleAddition) {
-    ArithmeticTranslyator a("2+3");
-    ASSERT_EQ(a.calculate(), 5);
+    ArithmeticTranslyator a("10 + 5");
+    ASSERT_EQ(a.calculate(), 15);
 }
 
 TEST(ArithmeticTranslyator, SimpleSubtraction) {
-    ArithmeticTranslyator a("5-2");
-    ASSERT_EQ(a.calculate(), 3);
+    ArithmeticTranslyator a("25-2");
+    ASSERT_EQ(a.calculate(), 23);
 }
 
 TEST(ArithmeticTranslyator, SimpleMultiplication) {
@@ -84,6 +84,14 @@ TEST(ArithmeticTranslyator, DivisionByZero) {
 
 TEST(ArithmeticTranslyator, EmptyString) {
     ASSERT_ANY_THROW(ArithmeticTranslyator a(""));
+}
+
+TEST(ArithmeticTranslyator, MinMin) {
+    ASSERT_ANY_THROW(ArithmeticTranslyator a("2--2"));
+}
+
+TEST(ArithmeticTranslyator, MultAndSc) {
+    ASSERT_ANY_THROW(ArithmeticTranslyator a("2 + (*3)"));
 }
 
 
